@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.Web.epam.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="WalletServiceImpService" targetNamespace="http://soap.Web.epam.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.Web.epam.com/" elementFormDefault="unqualified" targetNamespace="http://soap.Web.epam.com/" version="1.0">
+
+  <xs:element name="getAvailableAmount" type="tns:getAvailableAmount"/>
+
+  <xs:element name="getAvailableAmountResponse" type="tns:getAvailableAmountResponse"/>
+
+  <xs:element name="makeIncome" type="tns:makeIncome"/>
+
+  <xs:element name="makeIncomeResponse" type="tns:makeIncomeResponse"/>
+
+  <xs:element name="makeWithdraw" type="tns:makeWithdraw"/>
+
+  <xs:element name="makeWithdrawResponse" type="tns:makeWithdrawResponse"/>
+
+  <xs:complexType name="getAvailableAmount">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAvailableAmountResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="makeWithdraw">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="makeWithdrawResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="makeIncome">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="makeIncomeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAvailableAmount">
+    <wsdl:part element="tns:getAvailableAmount" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailableAmountResponse">
+    <wsdl:part element="tns:getAvailableAmountResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="makeIncomeResponse">
+    <wsdl:part element="tns:makeIncomeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="makeWithdrawResponse">
+    <wsdl:part element="tns:makeWithdrawResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="makeWithdraw">
+    <wsdl:part element="tns:makeWithdraw" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="makeIncome">
+    <wsdl:part element="tns:makeIncome" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WalletService">
+    <wsdl:operation name="getAvailableAmount">
+      <wsdl:input message="tns:getAvailableAmount" name="getAvailableAmount">
+    </wsdl:input>
+      <wsdl:output message="tns:getAvailableAmountResponse" name="getAvailableAmountResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeWithdraw">
+      <wsdl:input message="tns:makeWithdraw" name="makeWithdraw">
+    </wsdl:input>
+      <wsdl:output message="tns:makeWithdrawResponse" name="makeWithdrawResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeIncome">
+      <wsdl:input message="tns:makeIncome" name="makeIncome">
+    </wsdl:input>
+      <wsdl:output message="tns:makeIncomeResponse" name="makeIncomeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WalletServiceImpServiceSoapBinding" type="tns:WalletService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAvailableAmount">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAvailableAmount">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAvailableAmountResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeWithdraw">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="makeWithdraw">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="makeWithdrawResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeIncome">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="makeIncome">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="makeIncomeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WalletServiceImpService">
+    <wsdl:port binding="tns:WalletServiceImpServiceSoapBinding" name="WalletServiceImpPort">
+      <soap:address location="http://localhost:8080/BogdanSprysaWalletService/walletSoap"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
